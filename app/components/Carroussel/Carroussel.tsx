@@ -31,12 +31,6 @@ export const Carroussel = ({ movies }: { movies: Movie[] }) => {
 
     return (
         <div className={styles.carroussel}>
-            <button onClick={handleChevronLeft} className={styles.buttonLeft}>
-                <FontAwesomeIcon
-                    className={styles.chevronLeft}
-                    icon={faChevronLeft}
-                />
-            </button>
             <Image
                 src={`${process.env.NEXT_PUBLIC_THE_MOVIE_DB_MEDIA_FULL_URL}${movies[i].poster_path}`}
                 alt="Movie Poster"
@@ -44,6 +38,15 @@ export const Carroussel = ({ movies }: { movies: Movie[] }) => {
                 width={960}
                 height={400}
             />
+            <div className={styles.details.class}>
+                <span className={styles.details.title}>{movies[i].title}</span>
+            </div>
+            <button onClick={handleChevronLeft} className={styles.buttonLeft}>
+                <FontAwesomeIcon
+                    className={styles.chevronLeft}
+                    icon={faChevronLeft}
+                />
+            </button>
             <button onClick={handleChevronRight} className={styles.buttonRight}>
                 <FontAwesomeIcon
                     className={styles.chevronRight}

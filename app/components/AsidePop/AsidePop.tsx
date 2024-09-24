@@ -1,12 +1,10 @@
-import { Nav } from "../Nav/Nav";
 import { SearchBar } from "../SearchBar/SearchBar";
-import { styles } from "./Aside.css";
+import { styles } from "./AsidePop.css";
 
-export const Aside = () => {
+export const AsidePop = () => {
     return (
         <aside className={styles.aside.class}>
             <SearchBar />
-            <Nav />
         </aside>
     );
 };
