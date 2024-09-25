@@ -9,8 +9,14 @@ import {
     faChevronRight,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import Link from "next/link";
+import { MovieDetails } from "@/app/models/MovieDetails";
 
-export const Carroussel = ({ movies }: { movies: Movie[] }) => {
+export const Carroussel = ({
+    movies,
+}: {
+    movies: Movie[] | MovieDetails[];
+}) => {
     const [i, setI] = useState(0);
 
     const handleChevronLeft = () => {
@@ -38,21 +44,37 @@ export const Carroussel = ({ movies }: { movies: Movie[] }) => {
                 width={960}
                 height={400}
             />
-            <div className={styles.details.class}>
+            <Link
+                key={movies[i].id}
+                className={styles.details.class}
+                href={{
+                    pathname: `/movies/${movies[i].id}`,
+                }}
+            >
                 <span className={styles.details.title}>{movies[i].title}</span>
-            </div>
-            <button onClick={handleChevronLeft} className={styles.buttonLeft}>
-                <FontAwesomeIcon
-                    className={styles.chevronLeft}
-                    icon={faChevronLeft}
-                />
-            </button>
-            <button onClick={handleChevronRight} className={styles.buttonRight}>
-                <FontAwesomeIcon
-                    className={styles.chevronRight}
-                    icon={faChevronRight}
-                />
-            </button>
+            </Link>
+            {movies.length > 1 ? (
+                <>
+                    <button
+                        onClick={handleChevronLeft}
+                        className={styles.buttonLeft}
+                    >
+                        <FontAwesomeIcon
+                            className={styles.chevronLeft}
+                            icon={faChevronLeft}
+                        />
+                    </button>
+                    <button
+                        onClick={handleChevronRight}
+                        className={styles.buttonRight}
+                    >
+                        <FontAwesomeIcon
+                            className={styles.chevronRight}
+                            icon={faChevronRight}
+                        />
+                    </button>
+                </>
+            ) : null}
         </div>
     );
 };

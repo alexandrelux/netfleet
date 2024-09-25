@@ -6,6 +6,6 @@ export const styles = {
     image: `object-cover rounded-lg bg-neutral-800`,
     details: {
         class: "absolute rounded-lg top-0 left-0 w-full h-full flex items-center justify-center bg-black bg-opacity-50",
-        title: "font-bold",
+        title: "font-bold px-2",
     },
 };
