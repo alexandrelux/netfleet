@@ -44,17 +44,3 @@ Ajouter la BDD
     Username : postgres
     Password : (cf ci-dessus)
 ```
-
-# Step 1 : Create a database model
-
-pgAdmin create database
-
-> https://www.datensen.com/blog/data-modeling/sql-create-table-postgresql/
-
-# Step 2 : Query the model
-
-a
-
-# Step 3 : Predict Sales Evolution
-
-a
