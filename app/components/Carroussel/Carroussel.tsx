@@ -58,6 +58,7 @@ export const Carroussel = ({
                     <button
                         onClick={handleChevronLeft}
                         className={styles.buttonLeft}
+                        aria-label="Right"
                     >
                         <FontAwesomeIcon
                             className={styles.chevronLeft}
@@ -67,6 +68,7 @@ export const Carroussel = ({
                     <button
                         onClick={handleChevronRight}
                         className={styles.buttonRight}
+                        aria-label="Next"
                     >
                         <FontAwesomeIcon
                             className={styles.chevronRight}

@@ -40,7 +40,7 @@ export default async function Movies({ params }: { params: { id: string } }) {
                                         key={item.id}
                                         className="hover:underline text-sm"
                                         href={{
-                                            pathname: `/genres/${item.id}`,
+                                            pathname: `/genres/${item.id}/1`,
                                         }}
                                     >
                                         {item.name}
@@ -51,17 +51,24 @@ export default async function Movies({ params }: { params: { id: string } }) {
                     </div>
                     <p className="mt-5">{movie.overview}</p>
 
-                    <MovieSection title="Films similaires" movies={similars} />
+                    {similars.length > 0 ? (
+                        <MovieSection
+                            title="Films similaires"
+                            movies={similars}
+                        />
+                    ) : null}
 
-                    <MovieSection
-                        title="Nous vous recommendons"
-                        movies={recommendations}
-                    />
+                    {recommendations.length > 0 ? (
+                        <MovieSection
+                            title="Nous vous recommendons"
+                            movies={recommendations}
+                        />
+                    ) : null}
 
                     <p className="mt-10 text-xl font-bold">
                         A propos de {movie.title}
                     </p>
-                    <p className="text-sm mt-4">
+                    <p className="text-sm mt-2">
                         <span className="text-neutral-500">
                             {"Companie de production : "}
                         </span>
@@ -69,7 +76,7 @@ export default async function Movies({ params }: { params: { id: string } }) {
                             return <span key={item.id}>{item.name}</span>;
                         })}
                     </p>
-                    <p className="text-sm mt-1">
+                    <p className="text-sm mt-2">
                         <span className="text-neutral-500">
                             {"Pays d'origine(s) : "}
                         </span>

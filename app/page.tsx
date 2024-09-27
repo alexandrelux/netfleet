@@ -17,10 +17,14 @@ export default async function Home() {
         <>
             <Carroussel movies={trending} />
             <MovieSection
+                className="md:hidden"
+                title={MovieSectionEnum.Popular}
+                movies={popular}
+            />
+            <MovieSection
                 title={MovieSectionEnum.NowPlaying}
                 movies={nowPlaying}
             />
-            <MovieSection title={MovieSectionEnum.Popular} movies={popular} />
             <MovieSection title={MovieSectionEnum.TopRated} movies={topRated} />
             <MovieSection title={MovieSectionEnum.Upcoming} movies={upcoming} />
         </>

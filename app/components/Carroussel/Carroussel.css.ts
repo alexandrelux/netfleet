@@ -1,7 +1,7 @@
 import { carrousseldHeight, carrousselWidht } from "@/app/utils/const";
 
 export const styles = {
-    carroussel: `group relative max-w-[${carrousselWidht}px] min-h-[${carrousseldHeight}px] mx-auto flex items-center justify-center mb-10`,
+    carroussel: `group relative max-w-[${carrousselWidht}px] min-h-[${carrousseldHeight}px] mx-auto flex items-center justify-center mb-10 max-w-[1440px]`,
     image: `object-cover transition-all border border-4 border-neutral-900 rounded-xl h-[400px] w-[${carrousselWidht}px] bg-black`,
     buttonLeft: "absolute w-1/4 h-full top-0 left-0 flex items-center",
     chevronLeft:

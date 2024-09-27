@@ -1,4 +1,4 @@
-import { MovieResult, Movie } from "../models/MovieResult";
+import { MovieResult } from "../models/MovieResult";
 
 const options = {
     method: "GET",
@@ -8,10 +8,13 @@ const options = {
     },
 };
 
-export const searchMovies = async (query: string): Promise<Movie[]> => {
+export const searchMovies = async (
+    query: string,
+    page: string
+): Promise<MovieResult | undefined> => {
     try {
         const response = await fetch(
-            `${process.env.NEXT_PUBLIC_THE_MOVIE_DB_API_URL}/search/movie?query=${query}&include_adult=false&language=fr-FR&page=1`,
+            `${process.env.NEXT_PUBLIC_THE_MOVIE_DB_API_URL}/search/movie?query=${query}&include_adult=false&language=fr-FR&page=${page}`,
             options
         );
 
@@ -20,10 +23,8 @@ export const searchMovies = async (query: string): Promise<Movie[]> => {
         }
 
         const data: MovieResult = await response.json();
-
-        return data.results;
+        return data;
     } catch (err) {
         console.error("An error occurred while fetching data:", err);
-        return [];
     }
 };

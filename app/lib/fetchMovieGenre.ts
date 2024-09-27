@@ -1,5 +1,5 @@
 import { MovieGenre, MovieGenres } from "../models/MovieGenres";
-import { Movie, MovieResult } from "../models/MovieResult";
+import { MovieResult } from "../models/MovieResult";
 
 const options = {
     method: "GET",
@@ -28,10 +28,13 @@ export const fetchGenres = async (): Promise<MovieGenre[]> => {
     }
 };
 
-export const fetchMoviesbyGenre = async (id: number): Promise<Movie[]> => {
+export const fetchMoviesbyGenre = async (
+    id: number,
+    page: number
+): Promise<MovieResult | undefined> => {
     try {
         const response = await fetch(
-            `${process.env.NEXT_PUBLIC_THE_MOVIE_DB_API_URL}/discover/movie?with_genres=${id}&language=fr-FR`,
+            `${process.env.NEXT_PUBLIC_THE_MOVIE_DB_API_URL}/discover/movie?with_genres=${id}&language=fr-FR&page=${page}`,
             options
         );
 
@@ -40,9 +43,8 @@ export const fetchMoviesbyGenre = async (id: number): Promise<Movie[]> => {
         }
 
         const data: MovieResult = await response.json();
-        return data.results;
+        return data;
     } catch (err) {
         console.error("An error occurred while fetching data:", err);
-        return [];
     }
 };

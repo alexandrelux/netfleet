@@ -13,23 +13,31 @@ export const SearchBar = () => {
         event.preventDefault();
 
         if (query.trim()) {
-            router.push(`/search/${query}`);
+            router.push(`/search/${query}/1`);
         }
     };
 
     return (
         <form className={styles.form.class} onSubmit={handleSubmit}>
             <div className={styles.form.div}>
-                <button type="submit" className={styles.form.icon}>
+                <button
+                    type="submit"
+                    className={styles.form.icon}
+                    aria-label="Search"
+                >
                     <FontAwesomeIcon icon={faMagnifyingGlass} />
                 </button>
                 <input
+                    id="search"
                     type="text"
                     className={styles.form.input}
                     placeholder="Titre de film"
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                 />
+                <label htmlFor="search" className="sr-only">
+                    Rechercher
+                </label>
             </div>
         </form>
     );

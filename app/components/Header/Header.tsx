@@ -20,7 +20,9 @@ export const Header = () => {
                     className={styles.header.image}
                     src={logo}
                     alt="Netfleet"
+                    priority
                 ></Image>
+                <h1 className="sr-only">Netfleet</h1>
             </Link>
         </header>
     );

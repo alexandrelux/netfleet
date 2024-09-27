@@ -1,27 +1,29 @@
-import { fetchGenres } from "@/app/lib/fetchMovieGenre";
 import { styles } from "./Nav.css";
 import Link from "next/link";
+import { MovieSectionEnum } from "@/app/models/MovieSectionEnum";
+import { fetchMovies } from "@/app/lib/fetchMovies";
 
 export const Nav = async () => {
-    const genres = await fetchGenres();
+    const movies = await fetchMovies(MovieSectionEnum.Popular);
 
     return (
         <nav className={styles.nav.class}>
-            <ul className={styles.nav.class}>
-                {genres.map((item) => {
+            <p className={styles.nav.title}>Films populaires</p>
+            <div className={styles.nav.ul}>
+                {movies.map((item) => {
                     return (
                         <Link
                             key={item.id}
                             className={styles.nav.link}
                             href={{
-                                pathname: `/genres/${item.id}`,
+                                pathname: `/movies/${item.id}`,
                             }}
                         >
-                            {item.name}
+                            {item.title}
                         </Link>
                     );
                 })}
-            </ul>
+            </div>
         </nav>
     );
 };
