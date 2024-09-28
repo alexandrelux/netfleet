@@ -5,3 +5,4 @@ export const carrousseldHeight = 400;
 export const siteUrl = "https://netfleet.vercel.app";
 export const siteName = "Netfleet";
 export const siteDescription = "Simple movie browsing app";
+export const isrTime = 3600; // secondes

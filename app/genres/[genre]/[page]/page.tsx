@@ -1,6 +1,9 @@
 import { fetchGenres, fetchMoviesbyGenre } from "@/app/lib/fetchMovieGenre";
 import { MovieSection } from "@/app/components/MovieSection/MovieSection";
 import { Pager } from "@/app/components/Pager/Pager";
+import { isrTime } from "@/app/utils/const";
+
+export const revalidate = isrTime;
 
 export default async function Genres({
     params,

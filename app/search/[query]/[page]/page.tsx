@@ -2,6 +2,9 @@ import { MovieSection } from "@/app/components/MovieSection/MovieSection";
 import { Pager } from "@/app/components/Pager/Pager";
 import { searchMovies } from "@/app/lib/searchMovies";
 import Link from "next/link";
+import { isrTime } from "@/app/utils/const";
+
+export const revalidate = isrTime;
 
 export default async function Genres({
     params,

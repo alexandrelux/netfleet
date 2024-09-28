@@ -44,6 +44,7 @@ export const Carroussel = ({
                 width={960}
                 height={400}
             />
+            <div className={styles.overlay} />
             <Link
                 key={movies[i].id}
                 className={styles.details.class}

@@ -2,6 +2,9 @@ import { MovieSectionEnum } from "@/app/models/MovieSectionEnum";
 import { fetchMovies } from "@/app/lib/fetchMovies";
 import { MovieSection } from "./components/MovieSection/MovieSection";
 import { Carroussel } from "./components/Carroussel/Carroussel";
+import { isrTime } from "./utils/const";
+
+export const revalidate = isrTime;
 
 export default async function Home() {
     const [trending, nowPlaying, popular, topRated, upcoming] =
